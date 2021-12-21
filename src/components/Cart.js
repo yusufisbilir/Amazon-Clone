@@ -2,7 +2,7 @@ import CartContext from '../Context/cart/CartContext';
 import { useContext } from 'react';
 
 export default function Cart() {
-  const { cartItems, deleteCart } = useContext(CartContext);
+  const { cartItems, deleteCart, addOrder } = useContext(CartContext);
 
   return (
     <div className="container mx-auto bg-white">
@@ -16,7 +16,13 @@ export default function Cart() {
               ).toFixed(2)
             : '0'}
         </p>
-        <button className="bg-yellow-400 px-36 py-2 rounded">Order</button>
+        <button
+          className="bg-yellow-400 px-36 py-2 rounded"
+          onClick={() => addOrder(cartItems)}
+          disabled={!cartItems.length > 0}
+        >
+          Order
+        </button>
       </div>
 
       <div className="p-12 flex flex-col">
