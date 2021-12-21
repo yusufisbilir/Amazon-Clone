@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import CartContext from '../Context/cart/CartContext';
 
 export default function Navbar() {
+  const { cartItems } = useContext(CartContext);
+
   return (
     <>
       <div className="h-16 bg-primary-gray flex justify-between items-center px-4 text-white">
@@ -49,7 +52,15 @@ export default function Navbar() {
           </Link>
           <Link to="/cart" className="flex">
             <img src="/images/cart_icon.png" alt="cart" className="h-9" />
-            <p className="text-sm mt-4">Cart</p>
+
+            <p className="text-sm mt-4">
+              Cart
+              {cartItems.length > 0 ? (
+                <span>({cartItems.length})</span>
+              ) : (
+                <span>(0)</span>
+              )}
+            </p>
           </Link>
         </div>
       </div>

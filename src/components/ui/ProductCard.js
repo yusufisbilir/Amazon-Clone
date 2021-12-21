@@ -1,6 +1,11 @@
 import React from 'react';
 
+import CartContext from '../../Context/cart/CartContext';
+import { useContext } from 'react';
+
 export default function ProductCard({ product }) {
+  const { addToCart } = useContext(CartContext);
+
   return (
     <div className="bg-white shadow-md p-4">
       <div className="flex">
@@ -14,7 +19,12 @@ export default function ProductCard({ product }) {
           <h1 className="text-xl">{product.name}</h1>
           <p className="font-semibold">${product.price}</p>
         </div>
-        <button className="h-12 w-24 bg-yellow-400 rounded-full">Buy</button>
+        <button
+          className="h-12 w-24 bg-yellow-400 rounded-full"
+          onClick={() => addToCart(product)}
+        >
+          Buy
+        </button>
       </div>
     </div>
   );
