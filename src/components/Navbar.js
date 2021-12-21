@@ -5,7 +5,7 @@ export default function Navbar() {
     <>
       <div className="h-16 bg-primary-gray flex justify-between items-center px-4 text-white">
         {/* Nav Left */}
-        <div className="h-full flex items-center">
+        <div className="h-full flex items-center" id="nav">
           <a href="/">
             <img src="/images/amazon_logo.png" alt="amazon" className="h-9" />
           </a>
