@@ -21,8 +21,8 @@ export default function Cart() {
 
       <div className="p-12 flex flex-col">
         {/* Product List */}
-        {cartItems.map((cart) => (
-          <div key={cart.id} className="flex items-center">
+        {cartItems.map((cart, key) => (
+          <div key={key} className="flex items-center">
             <img src={cart.image} alt="product" className="w-24 my-4" />
             <div className="mx-20">
               <h1 className="font-semibold">{cart.name}</h1>
