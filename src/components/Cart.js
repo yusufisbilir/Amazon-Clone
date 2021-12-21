@@ -2,7 +2,7 @@ import CartContext from '../Context/cart/CartContext';
 import { useContext } from 'react';
 
 export default function Cart() {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, deleteCart } = useContext(CartContext);
 
   return (
     <div className="container mx-auto bg-white">
@@ -27,7 +27,12 @@ export default function Cart() {
             <div className="mx-20">
               <h1 className="font-semibold">{cart.name}</h1>
               <p className="my-2">${cart.price}</p>
-              <button className="bg-yellow-400 px-12 rounded">Delete</button>
+              <button
+                className="bg-yellow-400 px-12 rounded"
+                onClick={() => deleteCart(cart._id)}
+              >
+                Delete
+              </button>
             </div>
           </div>
         ))}
