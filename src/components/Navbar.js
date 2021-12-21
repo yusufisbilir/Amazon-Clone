@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   return (
@@ -6,16 +7,16 @@ export default function Navbar() {
       <div className="h-16 bg-primary-gray flex justify-between items-center px-4 text-white">
         {/* Nav Left */}
         <div className="h-full flex items-center" id="nav">
-          <a href="/">
+          <Link to="/">
             <img src="/images/amazon_logo.png" alt="amazon" className="h-9" />
-          </a>
+          </Link>
           <div className="ml-6 flex">
             <img
               src="/images/location_icon.png"
               alt="location"
               className="h-4 mt-3 mr-1"
             />
-            <a href="/">
+            <a href="#nav">
               <p className="leading-none text-gray-300 font-light text-xs">
                 Deliver to
               </p>
@@ -37,19 +38,19 @@ export default function Navbar() {
 
         {/* Nav Right */}
         <div className="flex">
-          <a href="/">
+          <Link to="/">
             <p className="text-xs">Hello, Sign in</p>
             <p className="text-sm font-semibold">Account & Lists</p>
-          </a>
+          </Link>
 
-          <a href="/" className="mx-6">
+          <Link to="/order" className="mx-6">
             <p className="text-xs">Returns</p>
             <p className="text-sm font-semibold">& Orders</p>
-          </a>
-          <a href="/" className="flex">
+          </Link>
+          <Link to="/cart" className="flex">
             <img src="/images/cart_icon.png" alt="cart" className="h-9" />
             <p className="text-sm mt-4">Cart</p>
-          </a>
+          </Link>
         </div>
       </div>
 
