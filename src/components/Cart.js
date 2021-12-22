@@ -1,8 +1,17 @@
 import CartContext from '../Context/cart/CartContext';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Cart() {
-  const { cartItems, deleteCart, addOrder } = useContext(CartContext);
+  const { cartItems, deleteCart, addOrder, emptyCart } =
+    useContext(CartContext);
+  let navigate = useNavigate();
+
+  const handleOrder = async () => {
+    await addOrder(cartItems);
+    await emptyCart();
+    navigate('/order');
+  };
 
   return (
     <div className="container mx-auto bg-white">
@@ -18,7 +27,7 @@ export default function Cart() {
         </p>
         <button
           className="bg-yellow-400 px-36 py-2 rounded"
-          onClick={() => addOrder(cartItems)}
+          onClick={handleOrder}
           disabled={!cartItems.length > 0}
         >
           Order
