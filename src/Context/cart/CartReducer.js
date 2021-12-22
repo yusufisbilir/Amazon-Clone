@@ -1,4 +1,4 @@
-import { ADD_CART, DELETE_CART, ADD_ORDER } from '../Types';
+import { ADD_CART, DELETE_CART, ADD_ORDER, EMPTY_CART } from '../Types';
 
 const CartReducer = (state, action) => {
   switch (action.type) {
@@ -21,6 +21,12 @@ const CartReducer = (state, action) => {
         ...state,
         // orders: [...state.orders, action.payload],
         orders: [...state.orders, action.payload],
+      };
+    }
+    case EMPTY_CART: {
+      return {
+        ...state,
+        cartItems: [],
       };
     }
     default:

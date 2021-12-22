@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 import CartContext from './CartContext';
 import CartReducer from './CartReducer';
-import { ADD_CART, DELETE_CART, ADD_ORDER } from '../Types';
+import { ADD_CART, DELETE_CART, ADD_ORDER, EMPTY_CART } from '../Types';
 
 const CartState = ({ children }) => {
   const initalState = {
@@ -23,6 +23,10 @@ const CartState = ({ children }) => {
     dispatch({ type: ADD_ORDER, payload: item });
   };
 
+  const emptyCart = () => {
+    dispatch({ type: EMPTY_CART });
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -31,6 +35,7 @@ const CartState = ({ children }) => {
         addToCart,
         deleteCart,
         addOrder,
+        emptyCart,
       }}
     >
       {children}
