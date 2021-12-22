@@ -10,4 +10,4 @@
 - Context API
 
 ## Author
--Yusuf İşbilir (yusufisbilir)
+- Yusuf İşbilir (yusufisbilir)
